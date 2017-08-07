@@ -1,0 +1,57 @@
+/* CSS Resets*/
+body, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav bar */
+.nav-bar {
+  /* Flexbox container */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  /* End flexbox */
+
+  /* Sizing */
+  width: 100%;
+  height: 50px;
+  /* End Sizing */
+
+  box-shadow: 0 3px 3px lightgrey;
+}
+
+.nav-bar > .nav-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  width: 50%;
+  height: 100%;
+}
+
+.nav-items > .nav-item {
+  /* Flexbox container */
+  /* This vertically aligns the text in nav-item */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* End Flexbox container */
+
+  /* Sizing */
+  height: 100%;
+  /* End Sizing */
+  text-align: center;
+  flex-grow: 1;
+  flex-shrink 1;
+}
+
+/* Sections */
+.section {
+  margin: 10px 50px;
+}
