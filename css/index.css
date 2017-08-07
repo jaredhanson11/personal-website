@@ -4,6 +4,14 @@ body, p {
   padding: 0;
 }
 
+/* Font */
+body {
+  font-family: monaco, Consolas, 'Lucida Console', monospace;
+  --color: #00F72C;
+  color: var(--color);
+  background-color: black;
+}
+
 /* Nav bar */
 .nav-bar {
   /* Flexbox container */
@@ -19,7 +27,7 @@ body, p {
   height: 50px;
   /* End Sizing */
 
-  box-shadow: 0 3px 3px lightgrey;
+  box-shadow: 0 3px 3px white;
 }
 
 .nav-bar > .nav-items {
@@ -53,5 +61,17 @@ body, p {
 
 /* Sections */
 .section {
-  margin: 10px 50px;
+  border: solid thin black;
+  width: 65%;
+  margin: auto;
+}
+
+@media (max-width : 768px) {
+  .section {
+    width: 95%;
+  }
+}
+
+.section-header {
+  text-align: center;
 }
