@@ -1,11 +1,10 @@
 $(document).ready(function(){
-  animateIntroMessage();
+  introScreen();
 });
 
-function animateIntroMessage() {
-  // Get text
-  var introText = 'Hi, I\'m Jared.';
+function introScreen() {
 
+  /// Helper functions
   function blink(selector, currBlink, maxBlink, callback) {
     $(selector).fadeOut(500, function() {
       $(this).fadeIn(500, function() {
@@ -18,10 +17,11 @@ function animateIntroMessage() {
         }
       });
     });
-  }
-  function typeNext(selector, typed, toType) {
+  };
+
+  function typeNext(selector, typed, toType, callback) {
     if (toType.length == 0) {
-      blink('.intro-text > .caret', 0, 10);
+      callback();
       return;
     }
     if (toType[0] == ' ') {
@@ -32,10 +32,21 @@ function animateIntroMessage() {
     toType = toType.substring(1);
     $(selector).html(typed);
     setTimeout(function(){
-      typeNext(selector, typed, toType);
+      typeNext(selector, typed, toType, callback);
     }, 200);
+  };
+
+  function afterAnimation() {
+    var navBar = $('.nav-bar');
+    navBar.slideDown();
   }
+  /// End Helper functions
+
+  var introText = 'Hi, I\'m Jared.';
   blink('.intro-text > .caret', 0, 1, function(){
-    typeNext('.intro-text > .intro-message', '', introText);
+    typeNext('.intro-text > .intro-message', '', introText, function() {
+      blink('.intro-text > .caret');
+      afterAnimation();
+    });
   });
 };
