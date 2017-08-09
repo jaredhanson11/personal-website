@@ -1,9 +1,16 @@
 /* CSS Resets*/
-body, p, a {
+body, p {
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  color: inherit;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: white;
 }
 
 /* Font */
@@ -28,10 +35,11 @@ body {
 
   /* Sizing */
   width: 100%;
-  height: 50px;
+  height: 46px;
   /* End Sizing */
 
-  box-shadow: 0 3px 3px white;
+  padding-bottom: 2px;
+  border-bottom: 2px solid white;
 }
 
 .nav-bar > .nav-brand {
@@ -96,11 +104,11 @@ body {
 
 /* Sections */
 .section {
-  width: 65%;
+  width: 75%;
   margin: auto;
   margin-top: 40px;
   padding-bottom: 40px;
-  border-bottom: solid thin var(--color);
+  border-bottom: 1px solid var(--color);
 }
 
 @media (max-width : 768px) {
@@ -115,7 +123,7 @@ body {
   font-size: 2.5em;
   text-align: center;
 
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* About me */
@@ -146,18 +154,17 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-width: 400px;
+  min-width: 375px;
   max-width: 650px;
 
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 20px;
 }
 
 .skill-type-name {
   font-size: 2em;
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .skill {
@@ -201,17 +208,56 @@ body {
 .portfolio-item {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  align-content: center;
+
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: 1px white solid;
+}
+
+.portfolio-item > .item-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   align-content: center;
 }
 
-.item-body {
+.item-body > .item-name {
+  font-size: 1.75em;
+  margin-bottom: 10px;
+}
+
+.item-body > .item-name> .item-subtitle {
+  font-size: .65em;
+}
+
+.item-body > .description {
+  font-size: .85em;
+}
+
+.portfolio-item > .item-img {
+  width: 40%;
+  margin: auto;
+}
+
+@media (max-width : 768px) {
+  .portfolio-item > .item-img {
+    min-width: 150px;
+    max-width: 150px;
+  }
+}
+
+.item-img > img {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
+  height: auto;
+  margin: auto;
+}
+
+#tjef-logo {
+  background-color: white;
 }
