@@ -34,7 +34,7 @@ body {
   background-color: black;
 
   /* Sizing */
-  width: 100%;
+  width: 100vw;
   height: 46px;
   /* End Sizing */
 
@@ -47,7 +47,6 @@ body {
 .nav-bar > .nav-brand {
   margin-left: 20px;
   height: 100%;
-  width: 100%;
 }
 
 .nav-bar > .nav-brand > .brand-logo {
@@ -62,6 +61,7 @@ body {
 
 .brand-logo > .logo-img {
   height: 100%;
+  cursor: pointer;
 }
 
 .nav-bar > .nav-items {
@@ -72,6 +72,15 @@ body {
   align-content: center;
 
   width: 50%;
+  height: 100%;
+}
+
+.nav-bar > .menu-button {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-bar > .menu-button > img {
   height: 100%;
 }
 
@@ -90,13 +99,48 @@ body {
   /* End Sizing */
   text-align: center;
   flex-grow: 1;
+
+  cursor: pointer;
+}
+
+@media (max-width : 768px) {
+  .nav-bar > .menu-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+
+    height: 45px;
+    margin-right: 10px;
+  }
+
+  .nav-bar > .nav-items {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 0px;
+
+    flex-direction: column;
+    align-items: flex-end;
+
+    width: auto;
+    max-width: 50%;
+    height: auto;
+  }
+  .nav-items > .nav-item {
+    height: auto;
+    padding: 10px;
+    margin-right: 10%;
+  }
+
 }
 
 /* Site Intro */
 .site-intro {
   /* Flexbox */
   display: flex;
-  flex-direction: col;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -202,7 +246,6 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-width: 375px;
   max-width: 650px;
 
   margin-right: 5px;
@@ -213,6 +256,10 @@ body {
 .skill-type-name {
   font-size: 2em;
   margin-bottom: 20px;
+}
+
+.skill-name {
+  padding-right: 5px;
 }
 
 .skill {
@@ -242,6 +289,11 @@ body {
   color: gold;
 }
 
+@media (max-width : 768px) {
+  .skills-container {
+    font-size: .8em;
+  }
+}
 /* Portfolio */
 .portfolio-container {
   max-width: 1000px;
@@ -313,7 +365,7 @@ body {
 }
 
 @media (max-width : 768px) {
-  .item-body > .description {
+  .item-body {
     font-size: .85em;
   }
 
@@ -331,7 +383,7 @@ body {
 
 /* Experience items */
 .experience-item > .item-body {
-  margin-left: 30px;
+  margin-left: 5%;
 }
 
 .experience-item > .item-img > img {
@@ -341,12 +393,12 @@ body {
 
 /* Footer */
 .footer {
-  width: 100%;
+  width: 100vw;
   height: 100px;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   align-content: center;
 }
@@ -358,7 +410,7 @@ body {
   align-items: center;
   align-content: center;
 
-  margin: auto 20px;
+  margin: auto 10%;
 }
 
 .social-media {
@@ -376,10 +428,25 @@ body {
 }
 
 .social-media > .platform + .platform {
-  margin-left: 15px;
+  margin-left: 5%;
 }
 
 .social-media > .platform > img {
   height: 100%;
   border-radius: 30%;
+}
+
+@media (max-width : 768px) {
+  .footer {
+    height: 75px;
+  }
+  .footer-side {
+    display: none;
+  }
+}
+
+@media (max-width : 768px) {
+  body {
+    font-size: .9em;
+  }
 }
