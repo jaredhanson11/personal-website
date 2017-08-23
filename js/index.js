@@ -3,6 +3,13 @@ $(document).ready(function(){
   navBarSetup();
 });
 
+function dropNav() {
+  var navBar = $('.nav-bar');
+  if (!(navBar.is(':visible'))){
+    navBar.slideDown();
+  }
+};
+
 function introScreen() {
 
   /// Helper functions
@@ -38,23 +45,8 @@ function introScreen() {
   };
 
   function afterAnimation(delay=50) {
+    dropNav();
     blink('.intro-text > .caret');
-    setTimeout( function(){
-      var navBar = $('.nav-bar');
-      navBar.slideDown();
-      unlockTop();
-    }, delay);
-  }
-
-  function lockToTop() {
-    setTimeout(function(){
-      $('body').scrollTop(0);
-      $('body').css('overflow', 'hidden');
-    }, 5);
-  }
-
-  function unlockTop() {
-      $('body').css('overflow', '');
   }
 
   function typeLines(lines, typingDelay = 100, betweenLines = 1) {
@@ -71,7 +63,6 @@ function introScreen() {
   /// End Helper functions
   var introTextLines = ['Hi, I\'m Jared.', 'Welcome!'];
 
-  lockToTop();
   blink('.intro-text > .caret', 0, 1, function(){
     typeLines(introTextLines, 200, 0);
   });
@@ -129,6 +120,7 @@ function navBarSetup() {
       if ($(window).width() > 768 && lastSize <= 768) {
         sideNavToggle(true);
       }
+
       lastSize = $(window).width();
     });
     sideNav.find('.exit-button').click(function() {
@@ -146,6 +138,16 @@ function navBarSetup() {
     sideNav.append(navItems);
   };
 
+  function listenNav() {
+    $(window).scroll(function(){
+      var offset_y = window.scrollY;
+      if (offset_y > 400){
+        dropNav();
+      };
+    });
+  };
+
+  listenNav();
   setupSideBar();
   navbarMenuListen();
   navItemsListen();
