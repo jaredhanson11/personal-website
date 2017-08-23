@@ -1,6 +1,6 @@
 $(document).ready(function(){
   introScreen();
-  createButtons();
+  navBarSetup();
 });
 
 function introScreen() {
@@ -20,7 +20,7 @@ function introScreen() {
     });
   };
 
-  function typeNext(selector, typed, toType, callback) {
+  function typeNext(selector, typed, toType, timeout=50, callback) {
     if (toType.length == 0) {
       callback();
       return;
@@ -33,14 +33,17 @@ function introScreen() {
     toType = toType.substring(1);
     $(selector).html(typed);
     setTimeout(function(){
-      typeNext(selector, typed, toType, callback);
-    }, 200);
+      typeNext(selector, typed, toType, timeout, callback);
+    }, timeout);
   };
 
-  function afterAnimation() {
-    var navBar = $('.nav-bar');
-    navBar.slideDown();
-    unlockTop();
+  function afterAnimation(delay=50) {
+    blink('.intro-text > .caret');
+    setTimeout( function(){
+      var navBar = $('.nav-bar');
+      navBar.slideDown();
+      unlockTop();
+    }, delay);
   }
 
   function lockToTop() {
@@ -53,29 +56,60 @@ function introScreen() {
   function unlockTop() {
       $('body').css('overflow', '');
   }
+
+  function typeLines(lines, typingDelay = 100, betweenLines = 1) {
+    typeNext('.intro-text > .intro-message', '', lines[0], typingDelay, function() {
+      if (lines.length == 1) {
+        afterAnimation();
+      } else {
+        blink('.intro-text > .caret', 0, betweenLines, function(){
+          typeLines(lines.slice(1), typingDelay, betweenLines);
+        });
+      }
+    });
+  };
   /// End Helper functions
-  var introText = 'Hi, I\'m Jared.';
+  var introTextLines = ['Hi, I\'m Jared.', 'Welcome!'];
 
   lockToTop();
   blink('.intro-text > .caret', 0, 1, function(){
-    typeNext('.intro-text > .intro-message', '', introText, function() {
-      blink('.intro-text > .caret');
-      afterAnimation();
-    });
+    typeLines(introTextLines, 200, 0);
   });
 };
 
-function createButtons() {
+function exitButton() {
+  return $('<div/>', {'class': 'exit'})
+    .append($('<div/>', {'class': 'exit-button'})
+        .html('&#10006;'));
+}
+
+//// End Persons boxes ////
+//// Nav-bar setup ////
+function sideNavToggle(closeOnly){
+  var sideNav = $('.side-nav');
+  if (sideNav.is(':visible') || closeOnly == true) {
+    sideNav.animate({
+      width: '0%'
+    }, function (){
+      sideNav.removeClass('active');
+    });
+  } else {
+    sideNav.addClass('active');
+    sideNav.animate({
+      width: '33%'
+    });
+  }
+}
+
+function navBarSetup() {
   function navItemsListen() {
-    $('.nav-items > .nav-item').click(function(){
-      console.log('lcick');
+    $('.nav-item').click(function(){
       var scrollTo = '.section#' + $(this).data('scroll-to');
-      console.log(scrollTo);
-      var offset = $(scrollTo).offset().top - 50;
-      console.log(offset);
+      var offset = $(scrollTo).offset().top - 130;
       $('html, body').animate({
         scrollTop: offset
       }, 1000);
+      sideNavToggle(true);
     })
   };
 
@@ -88,15 +122,31 @@ function createButtons() {
   };
 
   function navbarMenuListen() {
+    // This function depends on setupSideBar() below
+    var sideNav = $('.side-nav');
+    var lastSize = $(window).width();
+    $(window).resize(function(){
+      if ($(window).width() > 768 && lastSize <= 768) {
+        sideNavToggle(true);
+      }
+      lastSize = $(window).width();
+    });
+    sideNav.find('.exit-button').click(function() {
+      sideNavToggle(true);
+    });
     $('.menu-button').click(function(){
-      if ($('.nav-items').is(':visible')) {
-        $('.nav-items').slideUp();
-      } else {
-        $('.nav-items').slideDown();
-        $('.nav-items').css('display', 'flex');
-      };
+      sideNavToggle();
     });
   };
+
+  function setupSideBar() {
+    var sideNav = $('.side-nav');
+    var navItems = $('.nav-item').clone();
+    sideNav.append(exitButton());
+    sideNav.append(navItems);
+  };
+
+  setupSideBar();
   navbarMenuListen();
   navItemsListen();
   navBrandListen();
