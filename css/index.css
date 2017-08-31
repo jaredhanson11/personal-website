@@ -433,15 +433,6 @@ body {
 }
 
 /* Experience items */
-.experience-item#apple {
-  display: none;
-}
-
-.experience-item#adobe {
-  padding-top: 0;
-  margin-top: 0;
-  border-top: none;
-}
 
 .experience-item > .item-body {
   margin-left: 5%;
