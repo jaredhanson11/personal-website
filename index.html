@@ -23,6 +23,7 @@
       <div class="nav-brand"><a class="brand-logo"><img class="logo-img" src="./img/jh-logo.png" /></a></div>
       <div class="menu-button"><img src="./img/menu-button.png" /></div>
       <div class="nav-items">
+        <div class="nav-item" id="resume"><a target="_blank" href="./resources/06-20-19_Resume.pdf">My Resume</a></div>
         <div class="nav-item" data-scroll-to="about-me"><a>About Me</a></div>
         <div class="nav-item" data-scroll-to="skills"><a>Skills</a></div>
         <div class="nav-item" data-scroll-to="portfolio"><a>Portfolio</a></div>
@@ -115,6 +116,17 @@
       <div class="portfolio-container">
         <div class="portfolio-item">
           <div class="item-body">
+            <div class="item-name">TJEF.org <a class="item-subtitle" target="_blank" href="http://tjef.org">See it here!</a></div>
+              <ul class="description">
+                <li>Designed, developed, and host website for non-profit organization, <b>The John Ernest Foundation</b></li>
+                <li>Features include custom parallax scrolling behavior, custom <a target="_blank" href="https://github.com/jaredhanson11/webhooks">CI/CD pipeline</a> on Github commit, and auto renewing <a target="_blank" href="https://letsencrypt.org/">Lets's Encrypt</a> SSL certificates.</li>
+                <li>Technologies: Jquery | Nginx | AWS - <a target="_blank" href="https://github.com/jaredhanson11/tjef-redesign">see github</a></li>
+              </ul>
+          </div>
+          <div class="item-img" id="tjef-logo"><img class="landscape" src="./img/tjef-logo.png" /></div>
+        </div>
+        <div class="portfolio-item">
+          <div class="item-body">
             <div class="item-name">LearnIt <a class="item-subtitle" target="_blank" href="http://jared-hanson.com/learnit/main.html">Try it here!</a></div>
               <ul class="description">
                 <li>Motivates elementary school students to finish assignments by engaging them in homework</li>
@@ -122,7 +134,7 @@
                 <li>Technologies: Handlebars.js | Flask & MySQL | AWS &#65293; <a target="_blank" href="https://github.com/phillipou94/learnit-prototype">see github</a></li>
               </ul>
           </div>
-          <div class="item-img"><img src="./img/learnit-logo.png" /></div>
+          <div class="item-img"><img class="landscape" src="./img/learnit-logo.png" /></div>
         </div>
         <div class="portfolio-item">
           <div class="item-body">
@@ -134,18 +146,7 @@
               <li>Technologies: Handlebars.js | Node.js & MongoDB | Heroku &#65293; <a target="_blank" href="https://github.com/jaredhanson11/EasyPick">see github</a></li>
             </ul>
           </div>
-          <div class="item-img"><img src="./img/easypick-logo.png" /></div>
-        </div>
-        <div class="portfolio-item" id="tjef-website">
-          <div class="item-body">
-            <div class="item-name">TJEF Website <a class="item-subtitle" target="_blank" href="http://tjef.org/">tjef.org</a></div>
-            <ul class="description">
-              <li>The John Ernest Foundation is a non-profit organization with a variety of global initiatives</li>
-              <li>Completely redesigned their website in order to broadcast TJEF's message to a broader audience</li>
-              <li>Technologies: JQuery | AWS &#65293; <a target="_blank" href="https://github.com/jaredhanson11/tjef-redesign">see github</a></li>
-            </ul>
-          </div>
-          <div class="item-img" id="tjef-logo"><img src="./img/tjef-logo.png" /></div>
+          <div class="item-img"><img class="portrait" src="./img/easypick-logo.png" /></div>
         </div>
         <div class="portfolio-item">
           <div class="item-body">
@@ -157,7 +158,7 @@
               <li>Technologies: React-Native | Flask & MySQL | AWS &#65293; <a target="_blank" href="https://github.com/johnclarke96/student-id">see github</a></li>
             </ul>
           </div>
-          <div class="item-img"><img src="./img/student-id.png" /></div>
+          <div class="item-img"><img class="portrait" src="./img/student-id.png" /></div>
         </div>
         <div class="portfolio-item">
           <div class="item-body">
@@ -168,7 +169,7 @@
               <li>Technologies: Swift & AlamoFire | Flask & PostgreSQL | AWS &#65293; <a target="_blank" href="https://github.com/jaredhanson11/Ghost">see github</a></li>
             </ul>
           </div>
-          <img src="./img/ghostchat-logo.png"/>
+          <div class="item-img"><img class="portrait" src="./img/ghostchat-logo.png"/></div>
         </div>
       </div>
     </div>
@@ -176,7 +177,35 @@
       <div class="section-header">Experience</div>
       <div class="experience-items">
         <div class="experience-item" id="apple">
-          <div class="item-img"><img src="./img/apple-logo.png" /></div>
+          <div class="item-img"><img class="landscape" src="./img/apple-logo.jpg" /></div>
+          <div class="item-body">
+            <div class="item-name">Apple
+              <div class="item-subtitle">Software Engineer - Backend</div>
+            </div>
+            <ul class="description">
+              <li>Worked cross functionally with client, business and content teams to develop features for the Apple Store App</li>
+              <li>Developed Apple’s automated retail and customer service platform for messaging apps like iMessage and WeChat</li>
+              <li>Gained enterprise experience in microservice architectures, software development cycles, effective logging techniques etc</li>
+              <li>Worked with technologies such as Spring.io, Kafka, Kubernetes, Docker, CassandraSQL and many more</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item" id="urop">
+          <div class="item-img"><img class="landscape" src="./img/mit-sdl-logo.jpg" /></div>
+          <div class="item-body">
+            <div class="item-name">MIT Sustainable Design Lab
+              <div class="item-subtitle">Undergraduate Research Opportunity (UROP)</div>
+            </div>
+            <ul class="description">
+              <li>Automated workflows aggregating campus weather and energy data for use in downstream building models</li>
+              <li>Created workflow for simulating energy use of all MIT buildings with continuously calibrated building models</li>
+              <li>Created interactive dashboard of MIT campus charting simulated vs. measured energy usage per building</li>
+              <li>Presented work and research paper at the 2018 Symposium on Simulation for Architecture and Urban Design (SimAUD) in Delft, Netherlands</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item" id="apple">
+          <div class="item-img"><img class="landscape" src="./img/apple-logo.jpg" /></div>
           <div class="item-body">
             <div class="item-name">Apple
               <div class="item-subtitle">Software Engineer - Intern</div>
@@ -189,7 +218,7 @@
           </div>
         </div>
         <div class="experience-item" id="adobe">
-          <div class="item-img"><img src="./img/adobe-logo.png" /></div>
+          <div class="item-img"><img class="landscape" src="./img/adobe-logo.png" /></div>
           <div class="item-body">
             <div class="item-name">Adobe
               <div class="item-subtitle">Linux System Engineer - Intern</div>
@@ -203,7 +232,7 @@
           </div>
         </div>
         <div class="experience-item">
-          <div class="item-img"><img src="./img/leerink-logo.jpg" /></div>
+          <div class="item-img"><img class="landscape" src="./img/leerink-logo.jpg" /></div>
           <div class="item-body">
             <div class="item-name">Leerink LLC
               <div class="item-subtitle">Convertible Securities - Intern</div>
@@ -216,7 +245,7 @@
           </div>
         </div>
         <div class="experience-item">
-          <div class="item-img"><img src="./img/flatiron-logo.jpg" /></div>
+          <div class="item-img"><img class="landscape" src="./img/flatiron-logo.jpg" /></div>
           <div class="item-body">
             <div class="item-name">Flatiron Construction
               <div class="item-subtitle">Summer Intern</div>
@@ -240,7 +269,7 @@
         <a class="platform" target="_blank" href="https://www.instagram.com/jaredhanson11/"><img src="./img/instagram-logo.png" /></a>
       </div>
       <div class="footer-side" id="right">
-        <div>Email: <a href="mailto:hansonj@mit.edu">hansonj@mit.edu</a></div>
+        <div>Email: <a href="mailto:jred0011@gmail.com">jred0011@gmail.com</a></div>
       </div>
     </div>
     <script src="js/index.js"></script>

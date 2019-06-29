@@ -1,7 +1,38 @@
 $(document).ready(function(){
   introScreen();
   navBarSetup();
+  setImageHeight();
 });
+
+function setImageHeight() {
+  function setPortraitMaxHeight() {
+    function getPortfolioItemBody(imageDiv) {
+      var portfolioItem = null;
+      imageDiv.parents().each((i, item) => {
+        if ($(item).attr('class') != undefined &&
+          $(item).attr('class').includes('portfolio-item')) {
+          portfolioItem = item;
+          return;
+        }
+      });
+      if (portfolioItem != null) {
+        return $(portfolioItem).find('.item-body');
+      }
+    };
+
+    var portraitImages = $('img.portrait');
+    portraitImages.each((i, image) => {
+      itemBody = getPortfolioItemBody($(image));
+      if (itemBody) {
+        $(image).css('max-height', $(itemBody).outerHeight());
+      }
+    });
+  }
+  setPortraitMaxHeight();
+  $(window).resize(function(){
+    setPortraitMaxHeight();
+  });
+};
 
 function dropNav() {
   var navBar = $('.nav-bar');
@@ -134,8 +165,20 @@ function navBarSetup() {
   function setupSideBar() {
     var sideNav = $('.side-nav');
     var navItems = $('.nav-item').clone();
+    var reorderedNavItems = [];
+    var resumeItem = null;
+    navItems.each((i, item) => {
+      if ($(item).attr('id') && $(item).attr('id').includes('resume')) {
+        resumeItem = $(item).clone();
+      } else {
+        reorderedNavItems.push(item);
+      }
+    });
+    if (resumeItem != null) {
+      reorderedNavItems.push(resumeItem);
+    }
     sideNav.append(exitButton());
-    sideNav.append(navItems);
+    sideNav.append(reorderedNavItems);
   };
 
   function listenNav() {

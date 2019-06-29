@@ -103,6 +103,11 @@ body {
   cursor: pointer;
 }
 
+.nav-item#resume {
+  font-size: .75em;
+  color: var(--color) !important;
+}
+
 .side-nav {
   position: fixed;
   top: 51px;
@@ -365,10 +370,6 @@ body {
   align-content: center;
 }
 
-.portfolio-item#tjef-website {
-  display: none;
-}
-
 .portfolio-item + .portfolio-item, .experience-item + .experience-item {
   padding-top: 50px;
   margin-top: 20px;
@@ -381,6 +382,7 @@ body {
 
 #tjef-logo {
   background-color: white;
+  border-radius: 20px;
 }
 
 /* Generic items */
@@ -427,9 +429,18 @@ body {
 }
 
 .item-img > img {
+  margin: auto;
+  display: block;
+}
+
+.item-img > img.landscape {
   width: 100%;
   height: auto;
-  margin: auto;
+}
+
+.item-img > img.portrait {
+  max-height: 100px;/* max-height is overridden in JS */
+  width: auto;
 }
 
 /* Experience items */
