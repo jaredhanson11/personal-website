@@ -443,6 +443,7 @@ body {
 
 .item-img > img.portrait {
   max-height: 100px;/* max-height is overridden in JS */
+  max-width: 100%;
   width: auto;
 }
 
