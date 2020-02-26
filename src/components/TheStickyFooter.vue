@@ -1,11 +1,8 @@
 <template>
   <div id="sticky-footer">
-    <img
-      :key="idx"
-      v-for="(item, idx) in items"
-      id="sticky-footer-icon"
-      :src="require(`@/assets/img/${item.img}`)"
-    />
+    <a :href="item.to" v-for="(item, idx) in items" :key="idx">
+      <img id="sticky-footer-icon" :src="require(`@/assets/img/${item.img}`)" />
+    </a>
   </div>
 </template>
 
@@ -23,11 +20,13 @@ export default {
 
 <style scoped>
 #sticky-footer {
-  display: fixed;
-  bottom: 0;
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
 }
 #sticky-footer-icon {
   height: 40px;
   width: auto;
+  border-radius: 50%;
 }
 </style>
