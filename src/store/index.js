@@ -8,13 +8,27 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     nav: {
-      items: navItems
+      items: navItems,
+      height: '70px'
     },
     footer: {
       items: footerItems
+    },
+    landing: {
+      cursorShown: true,
+      text: 'Hello',
+      message: ['Hi, my name is Jared.', 'Welcome!']
     }
   },
-  mutations: {},
+  mutations: {
+    typeLandingText(state, payload) {
+      Vue.set(state.landing, 'text', payload)
+    },
+    toggleCursor(state) {
+      const toggle = !state.landing.cursorShown
+      Vue.set(state.landing, 'cursorShown', toggle)
+    }
+  },
   actions: {},
   modules: {}
 })

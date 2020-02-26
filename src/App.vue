@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <TheNavbar :items="navItems" />
-    <HomePage />
+  <div id="app" :style="`padding-top: ${navHeight}`">
+    <TheNavbar :height="navHeight" :items="navItems" />
+    <Home />
     <TheStickyFooter :items="footerItems" />
     <TheFooter />
   </div>
@@ -9,20 +9,21 @@
 
 <script>
 import TheNavbar from '@/components/TheNavbar.vue'
-import HomePage from '@/components/home/HomePage.vue'
+import Home from '@/views/Home.vue'
 import TheFooter from '@/components/TheFooter.vue'
 import TheStickyFooter from '@/components/TheStickyFooter.vue'
 export default {
   name: 'App',
   components: {
     TheNavbar,
-    HomePage,
+    Home,
     TheStickyFooter,
     TheFooter
   },
   data() {
     return {
       navItems: this.$store.state.nav.items,
+      navHeight: this.$store.state.nav.height,
       footerItems: this.$store.state.footer.items
     }
   }
@@ -34,6 +35,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 70px; /* Height of navbar */
 }
 </style>
