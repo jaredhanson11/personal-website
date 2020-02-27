@@ -1,19 +1,21 @@
 <template>
-  <b-row
-    id="landing-intro"
-    :style="`height: calc(100vh - ${navHeight})`"
-    align-v="center"
-    align-h="center"
-  >
-    <b-col id="landing-message">
-      <div id="landing-text">
-        {{ landingText }}
-      </div>
-      <div id="landing-cursor" :class="{ hidden: hideCursor }">
-        &#9611;
-      </div>
-    </b-col>
-  </b-row>
+  <b-container>
+    <b-row
+      id="landing-intro"
+      :style="`height: calc(100vh - ${navHeight})`"
+      align-v="center"
+      align-h="center"
+    >
+      <b-col id="landing-message">
+        <div id="landing-text">
+          {{ landingText }}
+        </div>
+        <div id="landing-cursor" :class="{ hidden: hideCursor }">
+          &#9611;
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

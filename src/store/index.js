@@ -20,6 +20,11 @@ export default new Vuex.Store({
       line: 0,
       letter: 0,
       lines: ['Hi, my name is Jared.', 'Welcome!']
+    },
+    aboutme: {
+      header: 'About Me',
+      text:
+        'Hi, my name is Jared Hanson. I am originally from Benicia, California but moved away to Boston to study and play football at the Massachusetts Institute of Technology. (Yes, contrary to popular belief MIT does have a football team.) After graduating with a BS in Computer Science I moved back to the Bay Area to work as a Software Engineer for Apple, Inc. I have a passion for innovation and technology, and my main interests are full-stack web development and entrepreneurship. Outside of technology, I love playing Fortnite, playing pickup basketball, and hanging out with my girlfriend, friends, and family. I hope you enjoy my website!'
     }
   },
   mutations: {
