@@ -12,7 +12,7 @@
       <img
         id="aboutme-img"
         class="rounded order-first"
-        src="@/assets/img/about-me.png"
+        :src="require(`@/assets/img/${img}`)"
       />
     </b-row>
     <b-row> </b-row>
@@ -32,6 +32,9 @@ export default {
     },
     aboutMe() {
       return this.$store.state.aboutme.text
+    },
+    img() {
+      return this.$store.state.aboutme.img
     }
   }
 }
