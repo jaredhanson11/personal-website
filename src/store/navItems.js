@@ -7,6 +7,6 @@ class NavItem {
 
 export default [
   new NavItem('About Me', '#about-me'),
-  new NavItem('Projects', '#projects'),
-  new NavItem('Experience', '#experience')
+  new NavItem('Projects', '#my-projects'),
+  new NavItem('Experience', '#my-experience')
 ]

@@ -1,5 +1,9 @@
 <template>
-  <b-container id="about-me" class="text-center">
+  <b-container
+    id="about-me"
+    class="text-center"
+    :style="`padding-top: ${navHeight}; margin-top: -${navHeight}`"
+  >
     <b-row align-v="center" align-h="center">
       <b-col>
         <VSectionHeader :header="header" />
@@ -35,6 +39,9 @@ export default {
     },
     img() {
       return this.$store.state.aboutme.img
+    },
+    navHeight() {
+      return this.$store.state.nav.height
     }
   }
 }

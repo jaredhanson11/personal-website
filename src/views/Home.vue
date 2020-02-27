@@ -2,7 +2,9 @@
   <div id="home-page">
     <LandingIntro />
     <AboutMe />
+    <hr />
     <MyProjects />
+    <hr />
     <MyExperience />
   </div>
 </template>
