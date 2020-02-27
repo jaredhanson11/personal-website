@@ -6,7 +6,7 @@
     variant="light"
     toggleable="md"
   >
-    <b-navbar-brand id="navbar-brand" to="/">
+    <b-navbar-brand id="navbar-brand" to="/#">
       <img src="@/assets/img/jh-logo-transparent-bg.png" />
     </b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

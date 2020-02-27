@@ -5,8 +5,10 @@
     align-v="center"
     align-h="center"
   >
-    <b-col>
-      <div id="landing-text">{{ landingText }}</div>
+    <b-col id="landing-message">
+      <div id="landing-text">
+        {{ landingText }}
+      </div>
       <div id="landing-cursor" :class="{ hidden: hideCursor }">
         &#9611;
       </div>
@@ -15,7 +17,8 @@
 </template>
 
 <script>
-const BLINK_INTERVAL = 1500
+const BLINK_INTERVAL = 1250
+const TYPE_INTERVAL = 250
 export default {
   name: 'LandingIntro',
   data() {
@@ -33,9 +36,26 @@ export default {
   },
   mounted() {
     const store = this.$store
-    setInterval(() => {
+    const initialBlinking = setInterval(() => {
       store.commit('toggleCursor')
     }, BLINK_INTERVAL)
+    setTimeout(() => {
+      clearInterval(initialBlinking)
+      store.commit('toggleCursor', true)
+      const typing = setInterval(() => {
+        if (
+          store.state.landing.text ==
+          store.state.landing.lines[store.state.landing.lines.length - 1]
+        ) {
+          clearInterval(typing)
+          setInterval(() => {
+            store.commit('toggleCursor')
+          }, BLINK_INTERVAL)
+        } else {
+          store.commit('nextLetter')
+        }
+      }, TYPE_INTERVAL)
+    }, 3 * BLINK_INTERVAL)
   }
 }
 </script>
@@ -43,6 +63,9 @@ export default {
 <style scoped>
 #landing-intro {
   text-align: center;
+}
+#landing-message {
+  font-size: 2em;
 }
 #landing-text,
 #landing-cursor {
