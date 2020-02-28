@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="`padding-top: ${navHeight}`">
+  <div id="app">
     <TheNavbar :height="navHeight" :items="navItems" />
     <Home />
     <TheStickyFooter :items="footerItems" />

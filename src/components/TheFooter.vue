@@ -13,8 +13,7 @@ export default {
 
 <style scoped>
 #the-footer {
-}
-
-#the-footer-copyright {
+  height: 40px;
+  padding-bottom: 2%;
 }
 </style>

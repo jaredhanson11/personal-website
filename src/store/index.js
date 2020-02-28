@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import navItems from '@/store/navItems.js'
 import footerItems from '@/store/footerItems.js'
+import experienceItems from '@/store/experienceItems.js'
 
 Vue.use(Vuex)
 
@@ -26,6 +27,12 @@ export default new Vuex.Store({
       img: 'about-me.png',
       text:
         'Hi, my name is Jared Hanson. I am originally from Benicia, California but moved away to Boston to study and play football at the Massachusetts Institute of Technology. (Yes, contrary to popular belief MIT does have a football team.) After graduating with a BS in Computer Science I moved back to the Bay Area to work as a Software Engineer for Apple, Inc. I have a passion for innovation and technology, and my main interests are full-stack web development and entrepreneurship. Outside of technology, I love playing Fortnite, playing pickup basketball, and hanging out with my girlfriend, friends, and family. I hope you enjoy my website!'
+    },
+    projects: {
+      items: []
+    },
+    experience: {
+      items: experienceItems
     }
   },
   mutations: {

@@ -2,7 +2,7 @@
   <b-container>
     <b-row
       id="landing-intro"
-      :style="`height: calc(100vh - ${navHeight})`"
+      :style="`height: 100vh`"
       align-v="center"
       align-h="center"
     >
